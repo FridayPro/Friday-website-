@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b18">
+  <meta name="description" content="FRIDAY — a personal brand exploring ideas, technology and creative possibilities.">
+  <title>FRIDAY — Personal Brand</title>
+  <style>
+    :root{--bg:#080b18;--panel:#11172b;--text:#f4f6ff;--muted:#aab3cf;--cyan:#54e7ff;--violet:#9b7bff;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 5%,rgba(104,74,255,.22),transparent 34%),radial-gradient(ellipse at 10% 35%,rgba(35,206,255,.12),transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(8,11,24,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.35rem;font-weight:900;letter-spacing:.18em}.logo span{color:var(--cyan)}.links{display:flex;gap:28px;color:var(--muted);font-size:.92rem}.links a:hover{color:var(--cyan)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 12px;border-radius:10px}
+    .hero{min-height:690px;display:grid;align-items:center;grid-template-columns:1.15fr .85fr;gap:50px;padding:85px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(84,231,255,.3);background:rgba(84,231,255,.07);color:var(--cyan);padding:7px 13px;border-radius:99px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+    h1{font-size:clamp(3.4rem,8vw,6.7rem);line-height:.98;letter-spacing:-.065em;margin:24px 0}h1 em{font-style:normal;background:linear-gradient(100deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:1.13rem;color:var(--muted);max-width:570px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:12px;font-weight:750;border:1px solid var(--line);transition:.2s}.primary{background:linear-gradient(110deg,#42dff7,#9b7bff);color:#07101b;border:0}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .orb-wrap{display:grid;place-items:center;min-height:390px;position:relative}.orb{width:min(330px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 1%,#a7f6ff 2%,#51b9ff 13%,#7355e9 43%,#17143f 70%);box-shadow:0 0 65px rgba(76,190,255,.35),inset -25px -25px 60px rgba(0,0,0,.55);position:relative;animation:float 6s ease-in-out infinite}.orb:before,.orb:after{content:"";position:absolute;border:1px solid rgba(130,226,255,.5);border-radius:50%;inset:-28px;transform:rotate(-24deg) scaleY(.36)}.orb:after{inset:-55px;transform:rotate(28deg) scaleY(.24);border-color:rgba(165,128,255,.5)}.orb-label{position:absolute;bottom:20px;right:0;background:rgba(17,23,43,.8);border:1px solid var(--line);padding:12px 16px;border-radius:13px;color:var(--muted);font-size:.85rem;backdrop-filter:blur(10px)}
+    @keyframes float{50%{transform:translateY(-14px)}}
+    section{padding:78px 0}.section-tag{color:var(--cyan);text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:800}.section-title{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.04em;margin:8px 0 14px}.sub{color:var(--muted);max-width:650px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.card{padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border-radius:18px}.icon{font-size:1.55rem}.card h3{margin:12px 0 7px}.card p{margin:0;color:var(--muted);font-size:.94rem}
+    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}.about-box{padding:32px;border-radius:22px;background:linear-gradient(140deg,rgba(84,231,255,.12),rgba(155,123,255,.12));border:1px solid var(--line);min-height:230px;display:flex;flex-direction:column;justify-content:center}.about-box strong{font-size:2rem;line-height:1.15}
+    .contact{border:1px solid rgba(84,231,255,.25);border-radius:24px;padding:clamp(25px,5vw,55px);background:radial-gradient(ellipse at 100% 0,rgba(155,123,255,.18),transparent 55%),var(--panel);display:flex;justify-content:space-between;align-items:center;gap:25px}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;min-height:auto;padding:75px 0 45px;gap:20px}.orb-wrap{min-height:320px}.grid{grid-template-columns:1fr}.about{grid-template-columns:1fr}.links{display:none;position:absolute;top:72px;left:0;right:0;padding:20px;background:#0b1022;flex-direction:column;gap:15px;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.contact{align-items:flex-start;flex-direction:column}section{padding:60px 0}}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="#home">FRI<span>DAY</span></a>
+  <div class="links" id="links"><a href="#home">Home</a><a href="#about">About</a><a href="#focus">What I Do</a><a href="#contact">Contact</a></div>
+  <button class="menu" id="menu" aria-label="Toggle navigation">Menu</button>
+</nav></div></header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow">✦ Personal brand · Future focused</div>
+      <h1>Ideas today.<br><em>Impact tomorrow.</em></h1>
+      <p class="lead">Welcome to FRIDAY — a space for creativity, technology and ambitious ideas. Discover what I'm exploring, building and working towards.</p>
+      <div class="actions"><a class="btn primary" href="#contact">Let's connect ↗</a><a class="btn" href="#about">Discover FRIDAY</a></div>
+    </div>
+    <div class="orb-wrap"><div class="orb"></div><div class="orb-label">Curiosity • Creativity • Progress</div></div>
+  </div>
+  <section id="about"><div class="wrap about">
+    <div class="about-box"><span class="section-tag">The vision</span><strong>Think boldly.<br>Build meaningfully.</strong></div>
+    <div><div class="section-tag">About FRIDAY</div><h2 class="section-title">A personal brand with a future-first mindset.</h2>
+      <p class="sub">FRIDAY is built around learning, sharing ideas and creating useful things. This is the starting point of the journey. As the brand grows, this space can showcase your story, skills, projects and achievements.</p>
+    </div>
+  </div></section>
+  <section id="focus"><div class="wrap">
+    <div class="section-tag">Areas of focus</div><h2 class="section-title">What FRIDAY is about</h2>
+    <p class="sub">A flexible foundation for your personal brand. Replace these starter topics with your real services, skills or interests.</p>
+    <div class="grid">
+      <article class="card"><div class="icon">✧</div><h3>Technology & Ideas</h3><p>Exploring useful technology, digital tools and fresh ways to solve problems.</p></article>
+      <article class="card"><div class="icon">◈</div><h3>Creative Projects</h3><p>Turning imagination into projects, experiments and experiences worth sharing.</p></article>
+      <article class="card"><div class="icon">↗</div><h3>Learning & Growth</h3><p>Documenting progress, sharing lessons and connecting with curious people.</p></article>
+    </div>
+  </div></section>
+  <section id="contact"><div class="wrap"><div class="contact">
+    <div><div class="section-tag">Get in touch</div><h2 class="section-title">Have an idea? Let's talk.</h2><p class="sub">For collaborations, questions or just to say hello, reach out.</p></div>
+    <a class="btn primary" href="mailto:hello@example.com?subject=Hello%20FRIDAY">Email FRIDAY ↗</a>
+  </div></div></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> FRIDAY. All rights reserved.</span><span>Built for ideas beyond the ordinary.</span></div></footer>
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  document.getElementById('menu').addEventListener('click',()=>document.getElementById('links').classList.toggle('open'));
+  document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
+</script>
+</body></html>
